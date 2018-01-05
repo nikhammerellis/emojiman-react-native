@@ -23,7 +23,7 @@ class CategoryList extends Component {
 
     //initially set the recently used emojis from local storage
     store.get('recentEmojis').then(res => {
-      if (res !== null) {
+      if (res.length !== 0) {
         const array = res.reverse();
         this.props.setRecentlyUsed(array);
       }
@@ -56,7 +56,7 @@ class CategoryList extends Component {
         <View style={styles.adRow}>
           <AdMobBanner
             adSize="banner"
-            adUnitID="ca-app-pub-4731542353190338/7647491786"
+            adUnitID="ca-app-pub-9266856293249642/4217083470"
             onAdFailedToLoad={this.bannerError}
             adViewDidReceiveAd={null}
           />

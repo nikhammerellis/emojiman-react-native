@@ -9,7 +9,12 @@ const RootNavigator = StackNavigator({
     screen: CategoryList
   },
   CategoryView: {
-    screen: CategoryView
+    screen: CategoryView,
+    navigationOptions: ({ navigation }) => ({
+      gestureResponseDistance: {
+        horizontal: 200
+      }
+    })
   }
 });
 

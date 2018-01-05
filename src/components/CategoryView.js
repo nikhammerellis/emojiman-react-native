@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, PanResponder, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
-import _ from 'lodash';
+//import _ from 'lodash'; uncomment to use
 
 import SingleEmoji from './SingleEmoji';
 
@@ -10,6 +10,7 @@ class CategoryView extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.title.name}`,
   });
+
 
   renderItem = (item) => {
     return (
@@ -22,7 +23,7 @@ class CategoryView extends Component {
       <View style={styles.adRow}>
         <AdMobBanner
           adSize="banner"
-          adUnitID="ca-app-pub-4731542353190338/5623963678"
+          adUnitID="ca-app-pub-9266856293249642/3787453031"
           onAdFailedToLoad={this.bannerError}
           adViewDidReceiveAd={null}
         />
@@ -30,6 +31,8 @@ class CategoryView extends Component {
     );
   }
 
+
+/**********************************************************/
   render() {
     const { emojiList, navigation } = this.props;
 
@@ -38,50 +41,51 @@ class CategoryView extends Component {
 
       return (
         <View style={styles.pageContainer}>
-          <FlatList
-            data={popularEmojis}
-            renderItem={this.renderItem}
-            keyExtractor={(item) => item.uid}
-          />
-          {this.renderAd()}
+            <FlatList
+              data={popularEmojis}
+              renderItem={this.renderItem}
+              keyExtractor={(item) => item.uid}
+            />
+            {this.renderAd()}
         </View>
       );
     }
 
-    if (navigation.state.params.title.name === 'Recently Used') {
+    if (navigation.state.params.title.name === 'Recent') {
       const { recentlyUsed } = this.props;
 
       if (recentlyUsed.length !== 0) {
         return (
           <View style={styles.pageContainer}>
-            <FlatList
-              data={recentlyUsed}
-              renderItem={this.renderItem}
-              keyExtractor={(item) => item.uid}
-            />
-            {this.renderAd()}
+              <FlatList
+                data={recentlyUsed}
+                renderItem={this.renderItem}
+                keyExtractor={(item) => item.uid}
+              />
+              {this.renderAd()}
           </View>
         );
       } else {
         return (
           <View style={styles.pageContainer}>
-            <View style={styles.noRecentlyUsed}>
-            <Text style={styles.noRecentlyUsedText}>You haven't used any emoji's yet!</Text>
-            </View>
+              <View style={styles.noRecentlyUsed}>
+              <Text style={styles.noRecentlyUsedText}>You haven't used any emoji's yet!</Text>
+              </View>
           </View>
         );
       }
     }
 
+
       return (
-        <View style={styles.pageContainer}>
-          <FlatList
-            data={emojiList}
-            renderItem={this.renderItem}
-            keyExtractor={(item) => item.uid}
-          />
-          {this.renderAd()}
-        </View>
+          <View style={styles.pageContainer}>
+              <FlatList
+                data={emojiList}
+                renderItem={this.renderItem}
+                keyExtractor={(item) => item.uid}
+              />
+              {this.renderAd()}
+          </View>
       );
   }
 }
@@ -108,11 +112,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  /*
-  const emojiList = _.map(state.categories.emojiList, (val, uid) => {
-    return { ...val, uid };
-  });
-  */
   const { emojiList } = state.categories;
 
   const { recentlyUsed } = state.categories;

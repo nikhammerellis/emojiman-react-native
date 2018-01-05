@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -23,6 +22,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		24BB0A451FFD5B50005CA13E /* libPods-emojiman.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BB0A461FFD5B50005CA13E /* libPods-emojiman.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -37,7 +37,6 @@
 		2DCD954D1E0B4F2C00145EB5 /* emojimanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* emojimanTests.m */; };
 		35DDBA3368EBBF048CD41BFE /* libPods-emojimanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22DE2AD9274911E2D63F4E8 /* libPods-emojimanTests.a */; };
 		3A40F1393BE6AC3BCAEA15D2 /* libPods-emojiman-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF9FD795949AF8AFB909135 /* libPods-emojiman-tvOSTests.a */; };
-		413A47D5DAFBFAEBDD24B5E4 /* libPods-emojiman.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FA95310DFCEE0FA7DAD733 /* libPods-emojiman.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		7FDF621A166B4A85975968FA /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC353A425664364911A8777 /* libRNAdMobManager.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -335,12 +334,20 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = emojiman/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = emojiman/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		1773B1F6A538F4B3D1503E1D /* Pods-Emoji Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emoji Messenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Emoji Messenger/Pods-Emoji Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 		17AC69875127199A3F4C88B8 /* Pods-emojimanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emojimanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-emojimanTests/Pods-emojimanTests.release.xcconfig"; sourceTree = "<group>"; };
+		2441BC8B1FE32C49003C7B85 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		245AEE031FE1BE6F00FA64FB /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		249AD0581FE8380800CCC2B6 /* libPods-emojiman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-emojiman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24BB0A061FFD565A005CA13E /* libPods-emojiman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-emojiman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24BB0A461FFD5B50005CA13E /* libPods-emojiman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-emojiman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* emojiman-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "emojiman-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* emojiman-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "emojiman-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		337F3A86F61740CBAE055B91 /* RNAdMobManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAdMobManager.xcodeproj; path = "../node_modules/react-native-admob/ios/RNAdMobManager.xcodeproj"; sourceTree = "<group>"; };
+		43379337A43084AFB6478D48 /* libPods-Emoji Messenger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Emoji Messenger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E464CE8F5BC9E47924CE231 /* Pods-emojiman-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emojiman-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-emojiman-tvOSTests/Pods-emojiman-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		696B1D92FABA7EDC73B745F0 /* Pods-Emoji Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Emoji Messenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Emoji Messenger/Pods-Emoji Messenger.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7A808E4EA956E4D1149B7D84 /* Pods-emojiman-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-emojiman-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-emojiman-tvOS/Pods-emojiman-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -371,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BB0A451FFD5B50005CA13E /* libPods-emojiman.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -385,7 +393,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				7FDF621A166B4A85975968FA /* libRNAdMobManager.a in Frameworks */,
-				413A47D5DAFBFAEBDD24B5E4 /* libPods-emojiman.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +647,8 @@
 				F7354F5FD2CEDA3A5F807804 /* Pods-emojiman-tvOSTests.release.xcconfig */,
 				BE561CD85E66913F1516A54B /* Pods-emojimanTests.debug.xcconfig */,
 				17AC69875127199A3F4C88B8 /* Pods-emojimanTests.release.xcconfig */,
+				1773B1F6A538F4B3D1503E1D /* Pods-Emoji Messenger.debug.xcconfig */,
+				696B1D92FABA7EDC73B745F0 /* Pods-Emoji Messenger.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -656,10 +665,16 @@
 		CB6D12C5B4051BB23DB3B869 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24BB0A461FFD5B50005CA13E /* libPods-emojiman.a */,
+				24BB0A061FFD565A005CA13E /* libPods-emojiman.a */,
+				249AD0581FE8380800CCC2B6 /* libPods-emojiman.a */,
+				2441BC8B1FE32C49003C7B85 /* MessageUI.framework */,
 				E4FA95310DFCEE0FA7DAD733 /* libPods-emojiman.a */,
 				AD6B41DD80E1136412D6F782 /* libPods-emojiman-tvOS.a */,
 				CEF9FD795949AF8AFB909135 /* libPods-emojiman-tvOSTests.a */,
 				E22DE2AD9274911E2D63F4E8 /* libPods-emojimanTests.a */,
+				245AEE031FE1BE6F00FA64FB /* Messages.framework */,
+				43379337A43084AFB6478D48 /* libPods-Emoji Messenger.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1489,6 +1504,7 @@
 			baseConfigurationReference = 929E11329743818F6BD32486 /* Pods-emojiman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = EJK24ENW22;
@@ -1497,6 +1513,7 @@
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 				);
 				INFOPLIST_FILE = emojiman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1504,6 +1521,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = emojiman;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1513,6 +1531,7 @@
 			baseConfigurationReference = 0FA9AFDC3A262931B31E6079 /* Pods-emojiman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = EJK24ENW22;
 				HEADER_SEARCH_PATHS = (
@@ -1520,6 +1539,7 @@
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 				);
 				INFOPLIST_FILE = emojiman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1527,6 +1547,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = emojiman;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

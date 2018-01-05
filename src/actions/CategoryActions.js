@@ -12,7 +12,9 @@ export const fetchCategories = () => {
   return (dispatch) => {
     firebase.database().ref('categories')
       .on('value', snapshot => {
-        dispatch({ type: CATEGORIES_FETCH_SUCCESS, payload: snapshot.val() });
+        const arr = snapshotToArray(snapshot);
+        arr.reverse();
+        dispatch({ type: CATEGORIES_FETCH_SUCCESS, payload: arr });
       });
   };
 };
@@ -23,6 +25,8 @@ export const fetchEmojisForCategory = (category) => {
 
     emojiList.orderByChild(`categories/${category.name}`).equalTo(true).on('value', snapshot => {
       const arr = snapshotToArray(snapshot);
+      arr.sort(sortArrayAlphabetically);
+
       dispatch({ type: EMOJIS_FETCH_SUCCESS, payload: arr });
     });
   };
@@ -44,7 +48,7 @@ export const setRecentlyUsed = (list) => {
   };
 };
 
-export const snapshotToArray = snapshot => {
+const snapshotToArray = snapshot => {
     const returnArr = [];
 
     snapshot.forEach(childSnapshot => {
@@ -54,6 +58,13 @@ export const snapshotToArray = snapshot => {
     });
 
     return returnArr.reverse();
+};
+
+const sortArrayAlphabetically = (a, b) => {
+  const textA = a.name.toUpperCase();
+  const textB = b.name.toUpperCase();
+
+  return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 };
 
 export const incrementCopyCount = (uid, count) => {
@@ -75,17 +86,3 @@ export const incrementCopyCount = (uid, count) => {
      });
   };
 };
-
-/*
-export const addEmojis = () => {
-  return (dispatch) => {
-  const emojis = [
-
-  ];
-
-    emojis.forEach((emoji) => {
-      firebase.database().ref('emojis').push(emoji);
-    });
-  };
-};
-*/

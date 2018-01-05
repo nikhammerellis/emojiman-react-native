@@ -19,9 +19,15 @@ class SingleEmoji extends Component {
     const { item } = this.props.item;
 
     Clipboard.setString(item.emoji);
-    Alert.alert('Copied to clipboard!');
 
     this.bumpCopyCount(item.uid, item.copyCount, item);
+    this.copyAlert();
+  }
+
+  copyAlert() {
+    setTimeout(() => {
+      Alert.alert('Copied to clipboard!');
+    }, 400);
   }
 
   containsObject(obj, list) {
@@ -78,7 +84,7 @@ class SingleEmoji extends Component {
 
     return (
       <View style={styles.listItemStyle}>
-        <TouchableOpacity onLongPress={() => this.showModal()}>
+        <TouchableOpacity onPress={() => this.showModal()}>
           <View style={styles.nameContainer}>
             <Text style={styles.name}>{item.name}</Text>
           </View>
@@ -105,7 +111,13 @@ class SingleEmoji extends Component {
               >
                 Message
               </ModalButton>
-              <ModalButton onPress={() => this.onCopyPress()}>
+              <ModalButton
+                onPress={() => {
+                  this.onCopyPress();
+                  this.hideModal();
+                  this.copyAlert();
+                }}
+              >
                 Copy
               </ModalButton>
             </View>

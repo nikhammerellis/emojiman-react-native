@@ -23,7 +23,7 @@ class ListItem extends Component {
       <TouchableOpacity onPress={this.onRowPress.bind(this)}>
         <View style={styles.listItemStyle}>
           <Text style={styles.text}>{this.props.item.item.name}</Text>
-          <Text style={styles.emoji}>{this.props.item.item.token}</Text>
+          <Text style={styles.emoji}>{this.props.item.item.symbol}</Text>
         </View>
       </TouchableOpacity>
     );
