@@ -8,7 +8,8 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 import CategoryList from './components/CategoryList';
-import RootNavigator from './Router';
+import EmojiRouter from './EmojiRouter';
+import TabNavigator from './TabNavigator';
 
 /*
 const instructions = Platform.select({
@@ -41,7 +42,7 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <RootNavigator />
+        <TabNavigator />
       </Provider>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, PanResponder, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { AdMobBanner } from 'react-native-admob';
 //import _ from 'lodash'; uncomment to use

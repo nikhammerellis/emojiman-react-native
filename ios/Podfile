@@ -8,6 +8,10 @@ target 'emojiman' do
   # Pods for emojiman
   pod 'Google-Mobile-Ads-SDK'
 
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
+  pod 'react-native-fetch-blob', :path => '../node_modules/react-native-fetch-blob'
+
   target 'emojimanTests' do
     inherit! :search_paths
     # Pods for testing

@@ -28,7 +28,6 @@ class CategoryList extends Component {
         this.props.setRecentlyUsed(array);
       }
     });
-    //this.props.addEmojis(); //use this to push new emojis to database from an array
   }
 
   renderItem = (item) => {

@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import CategoryList from './components/CategoryList';
 import CategoryView from './components/CategoryView';
 
-const RootNavigator = StackNavigator({
+const EmojiRouter = StackNavigator({
   Home: {
     screen: CategoryList
   },
@@ -18,4 +18,4 @@ const RootNavigator = StackNavigator({
   }
 });
 
-export default RootNavigator;
+export default EmojiRouter;
