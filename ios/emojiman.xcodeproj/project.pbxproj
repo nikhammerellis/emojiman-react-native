@@ -1581,7 +1581,7 @@
 				DEVELOPMENT_TEAM = EJK24ENW22;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native/React",
 				);
 				INFOPLIST_FILE = emojiman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1607,7 +1607,7 @@
 				DEVELOPMENT_TEAM = EJK24ENW22;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native/React",
 				);
 				INFOPLIST_FILE = emojiman/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

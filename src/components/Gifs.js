@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RNFetchBlob from 'react-native-fetch-blob';
 //import RNFS from 'react-native-fs';
+import Modal from 'react-native-modal';
 import firebase from 'firebase';
 import { text } from 'react-native-communications';
 import {
@@ -16,18 +17,26 @@ import {
   CameraRoll,
   Alert,
   Clipboard,
-  Linking
+  Linking,
+  WebView,
+  NativeModules
 } from 'react-native';
+
+const gifHTML = require('../html/gifs.html');
 
 //import Images from '@assets/images';
 
+//import awwYeah from '../assets/img/aaw_yeah.gif';
 
 import { fetchGifs } from '../actions';
 
-const { width, height } = Dimensions.get('window');
 
-const equalWidth = (width / 4);
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
+const equalWidth = (SCREEN_WIDTH / 4);
+
+//const LinkingManager = NativeModules.LinkingManager;
 
 class Gifs extends Component {
   static navigationOptions = {
@@ -38,7 +47,12 @@ class Gifs extends Component {
     this.props.fetchGifs();
   }
 
-  //_keyExtractor = (item, index) => item.id;
+  componentDidMount() {
+    //console.log(this.refs.gifWebview.postMessage);//this is a function...
+    //this.refs.gifWebview.postMessage('Hello this is fucking working');
+    //this.refs.gifWebview.postMessage(this.props.gifs);
+  }
+
 
   handleGifClick = (url) => {
     ActionSheetIOS.showActionSheetWithOptions({
@@ -50,77 +64,64 @@ class Gifs extends Component {
         //copy to clipboard
         console.log('Copied!');
         Clipboard.setString(url);
+        //NativeModules.BetterClipboard.addBase64Image(url); //crashes the app
       } else if (buttonIndex === 1) {
         //link to messenger
+        //const URL = `sms:;&body=${url}`;
+        //LinkingManager.openURL(URL);
         console.log('Messaged!');
         text(null, url);
       } else if (buttonIndex === 2) {
-        //open in browser
-        console.log('opened!');
+        console.log('open');
         Linking.openURL(url);
       } else if (buttonIndex === 3) {
-        //save to camera roll
-        //const imageRef = firebase.storage().ref
-
-        //save image to camera roll SAVE GIF AS STATIC IMAGE (first frame?)
         CameraRoll.saveToCameraRoll(url).then(Alert.alert('Success', 'Gif saved!')).catch((err) => console.log(err));
-
-        /* this shit is just complete nonsense
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.responseType = 'blob';
-        xhr.onload = (event) => {
-          //const blob = xhr.response;
-          if (this.status === 200) {
-            const blob = this.response;
-            console.log('blob: ', blob);
-          }
-        };
-        xhr.send();
-        */
-        /* this FetchBlob shit is all sorts of fucked up yo */
-        /*
-        RNFetchBlob.config({
-          fileCache: true,
-          appendExt: 'gif'
-        })
-        .fetch('GET', url).then((res) => {
-          const path = res.path();
-          console.log(path);
-          CameraRoll.saveToCameraRoll(path).then(Alert.alert('Success', 'Gif saved!')).catch((err) => console.log(err));
-        });
-        */
       }
     });
   }
+
 
   renderRowItem = (itemData) => {
     return (
       <TouchableOpacity onPress={() => this.handleGifClick(itemData.item.url)}>
         <Image style={{ height: equalWidth, width: equalWidth }} source={{ uri: itemData.item.url }} resizeMode='cover' />
       </TouchableOpacity>
+
     );
   }
 
+  // For Displaying images as webviews in renderRowItem
+  // <View style={{ width: equalWidth }}>
+  //   <WebView
+  //     style={styles.webview}
+  //     source={{ uri: itemData.item.url }}
+  //     dataDetectorTypes={'all'}
+  //   />
+  // </View>
+
+
   render() {
     const { gifs } = this.props;
+    //console.log(gifs); //array of objects
     return (
       <View style={styles.pageContainer}>
+
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>
             EMOJIMAN
           </Text>
         </View>
-        <View style={styles.container}>
-        {/* //functionality for local gif files
-        <TouchableOpacity
-          onPress={() => Linking.openURL(Images.awwYeah.uri)
-
-            //CameraRoll.saveToCameraRoll(Images.awwYeah.uri).then(Alert.alert('Success', 'Gif saved!')).catch((err) => console.log(err));
-          }//}
-        >
-          <Image source={Images.awwYeah.uri} style={{ width: 50, height: 50 }} />
-        </TouchableOpacity>
+        {/*
+        <View style={styles.webviewContainer}>
+          <WebView
+            javaScriptEnabled
+            ref="gifWebview"
+            injectedJavaScript={'(function(){ console.log("this is working")}());'}
+            source={gifHTML}
+            onMessage={this.onMessage}
+            style={{ flex: 1 }}
+          />
+        </View>
         */}
 
           <FlatList
@@ -130,7 +131,7 @@ class Gifs extends Component {
             renderItem={this.renderRowItem}
           />
 
-        </View>
+
       </View>
     );
   }
@@ -147,6 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   headerContainer: {
+    backgroundColor: '#F5FCFF',
     flexDirection: 'row',
     justifyContent: 'center',
     borderBottomWidth: 1,
@@ -158,12 +160,27 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold'
   },
-  gifContainer: {
+  // gifContainer: {
+  //   flex: 1,
+  //   flexDirection: 'row',
+  //   justifyContent: 'space-around',
+  //   alignItems: 'flex-start',
+  //   marginTop: 20
+  // },
+  webview: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'flex-start',
-    marginTop: 20
+    width: equalWidth,
+    height: equalWidth,
+    //marginTop: 10
+  },
+  imgStyle: {
+    //flex: 1,
+    //width: equalWidth,
+    //height: equalWidth
+  },
+  webviewContainer: {
+    flex: 1,
+    //backgroundColor: 'orange'
   }
 });
 
